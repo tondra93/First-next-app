@@ -16,18 +16,25 @@ export default function Home() {
         <form className='grid grid-cols-6 items-center text-black'>
           <input className='col-span-3 p-3 border' type='text' placeholder='Enter item'/>
           <input className='col-span-3 p-3 border mx-4' type='number' placeholder='Enter $'/>
-          <button className=' text-white bg-slate-950 hover:bg-slate-900 p-3 text-lg' type='submit'>Add</button>
+          <button className=' text-white bg-slate-950 hover:bg-slate-900 p-3 text-lg my-5' type='submit'>Add</button>
         </form>
         <ul>
           {data.map((data) => {
             return (
-              <li key={data.id} className='flex justify-between p-4'>
-                <span>{data.item}</span>
+              <li key={data.id} className='flex justify-between p-4 bg-slate-950'>
+                <div className="p-4 w-full flex justify-between">
+                <span className="capitalize">{data.item}</span>
                 <span>{data.amount}</span>
+                </div>
+               <button className="ml-8 p-4 border-l-2 border-slate-900 hover:bg-slate-700 w-16">X</button>
               </li>
             )
           })}
         </ul>
+        {data.length<1 ? ('') : (<div>
+          <span>Total</span>
+          <span>${total}</span>
+        </div>)}
        </div>
       </div>
     </main>
